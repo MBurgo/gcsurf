@@ -1,0 +1,13 @@
+# GCSurf — Cloudflare Configuration
+# Docs: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+name = "gcsurf"
+compatibility_date = "2024-09-25"
+
+# KV Namespace bindings
+# After running: npx wrangler kv namespace create SURF_DATA
+# Replace the IDs below with the ones output by that command
+[[kv_namespaces]]
+binding = "SURF_DATA"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_YOUR_PREVIEW_KV_NAMESPACE_ID"

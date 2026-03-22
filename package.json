@@ -1,0 +1,14 @@
+{
+  "name": "gcsurf",
+  "version": "1.0.0",
+  "description": "Gold Coast Beach & Surf Conditions Dashboard",
+  "private": true,
+  "scripts": {
+    "dev": "npx wrangler pages dev public --kv=SURF_DATA",
+    "deploy": "npx wrangler pages deploy public",
+    "fetch-data": "node scripts/fetch-conditions.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GC Surf — Gold Coast Beach & Surf Conditions</title>
+<meta name="description" content="Live surf conditions, tide chart, and beach guide for 13 Gold Coast beaches from D-bah to The Spit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">GC<span>Surf</span></a>
+    <div class="header-meta">
+      <div class="update-badge">
+        <div class="pulse"></div>
+        <span class="update-text" id="update-ago">Loading...</span>
+      </div>
+      <span id="header-date"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONDITIONS ═══ -->
+<div class="conditions-panel">
+
+  <!-- SWELL: QLD Gov wave buoy -->
+  <div class="cond-card">
+    <div class="cond-card-header">
+      <span class="cond-card-title">Swell — Offshore Gold Coast</span>
+      <span class="source-label">QLD Gov wave buoy</span>
+    </div>
+    <div class="cond-grid">
+      <div class="cond-stat">
+        <div class="label">Height</div>
+        <div class="value"><span id="swell-hs">—</span><span class="unit">m</span></div>
+        <div class="sub" id="swell-hmax">Loading…</div>
+      </div>
+      <div class="cond-stat">
+        <div class="label">Period</div>
+        <div class="value"><span id="swell-tp">—</span><span class="unit">s</span></div>
+        <div class="sub">Peak period</div>
+      </div>
+      <div class="cond-stat">
+        <div class="label">Water</div>
+        <div class="value"><span id="swell-sst">—</span><span class="unit">°C</span></div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    <div class="swell-dir-wrap">
+      <svg class="compass-mini" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="26" fill="none" stroke="#E8E8E8" stroke-width="1"/>
+        <text x="28" y="10" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">N</text>
+        <text x="50" y="31" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">E</text>
+        <text x="28" y="52" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">S</text>
+        <text x="6" y="31" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">W</text>
+        <line x1="44" y1="38" x2="20" y2="22" stroke="#0077B6" stroke-width="2" stroke-linecap="round" marker-end="url(#ah)"/>
+        <defs><marker id="ah" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><polygon points="0 0, 6 2, 0 4" fill="#0077B6"/></marker></defs>
+      </svg>
+      <div class="swell-dir-text">
+        <strong id="swell-dir-cardinal">—</strong> swell direction<br>
+        Favours south-facing points
+      </div>
+    </div>
+  </div>
+
+  <!-- WIND: BOM Gold Coast Seaway -->
+  <div class="cond-card">
+    <div class="cond-card-header">
+      <span class="cond-card-title">Wind & Weather — Gold Coast Seaway</span>
+      <span class="source-label">BOM station 94580</span>
+    </div>
+    <div class="cond-grid cond-grid-4">
+      <div class="cond-stat">
+        <div class="label">Wind</div>
+        <div class="value"><span id="wind-speed">—</span><span class="unit">kt</span></div>
+        <div class="sub" id="wind-dir-label"></div>
+      </div>
+      <div class="cond-stat">
+        <div class="label">Gusts</div>
+        <div class="value"><span id="gust-speed">—</span><span class="unit">kt</span></div>
+        <div class="sub" id="gust-dir-label"></div>
+      </div>
+      <div class="cond-stat">
+        <div class="label">Air</div>
+        <div class="value"><span id="air-temp">—</span><span class="unit">°C</span></div>
+        <div class="sub"></div>
+      </div>
+      <div class="cond-stat">
+        <div class="label">Humidity</div>
+        <div class="value"><span id="humidity-val">—</span><span class="unit">%</span></div>
+        <div class="sub"></div>
+      </div>
+    </div>
+    <div class="swell-dir-wrap">
+      <svg class="compass-mini" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="26" fill="none" stroke="#E8E8E8" stroke-width="1"/>
+        <text x="28" y="10" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">N</text>
+        <text x="50" y="31" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">E</text>
+        <text x="28" y="52" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">S</text>
+        <text x="6" y="31" font-size="8" fill="#9A9A9A" text-anchor="middle" font-family="Outfit">W</text>
+        <line x1="14" y1="42" x2="38" y2="18" stroke="#2D8A56" stroke-width="2" stroke-linecap="round" marker-end="url(#ahG)"/>
+        <defs><marker id="ahG" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><polygon points="0 0, 6 2, 0 4" fill="#2D8A56"/></marker></defs>
+      </svg>
+      <div class="swell-dir-text" id="wind-type-text">
+        Loading wind data...
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TIDE CHART ═══ -->
+<section class="tide-section">
+  <div class="tide-card">
+    <div class="tide-header">
+      <h3 class="tide-title">Today's Tide — Gold Coast Seaway</h3>
+      <span class="source-label">Maritime Safety QLD · predicted</span>
+    </div>
+    <div class="tide-chart-wrap" id="tideChartWrap"></div>
+    <div class="tide-extremes" id="tideExtremes"></div>
+  </div>
+</section>
+
+<!-- ═══ QUICK TAKE ═══ -->
+<div class="quick-take">
+  <div class="quick-take-card">
+    <div class="qt-icon" id="quick-take-icon">~</div>
+    <div class="qt-content" id="quick-take-content">
+      <div class="qt-headline">Loading conditions…</div>
+      <div class="qt-body">Fetching live data from wave buoys and weather stations.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BEACH GUIDE ═══ -->
+<main class="main">
+  <div class="section-header">
+    <h2 class="section-title">Beach Guide</h2>
+    <span class="section-sub">13 spots from D-bah to The Spit — tap for details</span>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-tab active" onclick="filterBeaches('all', this)">All beaches</button>
+    <button class="filter-tab" onclick="filterBeaches('south', this)">South</button>
+    <button class="filter-tab" onclick="filterBeaches('central', this)">Central</button>
+    <button class="filter-tab" onclick="filterBeaches('north', this)">North</button>
+    <button class="filter-tab" onclick="filterBeaches('beginner', this)">Beginner friendly</button>
+  </div>
+
+  <div class="beach-grid" id="beachGrid"></div>
+</main>
+
+<footer class="site-footer">
+  <span>GCSurf — Wave: QLD Gov (DES). Weather: BOM. Tides: MSQ. Not a safety resource.</span>
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Data sources</a>
+  </div>
+</footer>
+
+<script src="/beaches.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
